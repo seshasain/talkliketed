@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,14 +64,14 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				flirt: {
-					navy: "#2A4785",      // Lightened navy blue
-					charcoal: "#3D4758",  // Lightened charcoal
-					slate: "#505460",     // Lightened slate
-					gold: "#E6C14F",      // Brightened gold
-					crimson: "#B82C2C",   // Brightened crimson
-					blue: "#2E78D2",      // Brightened blue
-					lightBlue: "#7CDEF5", // Brightened light blue
-					gray: "#F0F2F5",      // Kept light gray
+					navy: "#3A5CAA",      // Brightened navy blue
+					charcoal: "#4D5A6C",  // Lightened charcoal
+					slate: "#606A7A",     // Lightened slate
+					gold: "#F8D064",      // Brightened gold
+					crimson: "#D83838",   // Brightened crimson
+					blue: "#4A90E2",      // Brightened blue
+					lightBlue: "#8EEBFF", // Brightened light blue
+					gray: "#F5F7FA",      // Lighter gray
 					white: "#FFFFFF"      // Kept white
 				}
 			},

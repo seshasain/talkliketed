@@ -12,10 +12,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em rgba(42, 71, 133, 0.6));
+  filter: drop-shadow(0 0 2em rgba(58, 92, 170, 0.6));
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em rgba(46, 120, 210, 0.6));
+  filter: drop-shadow(0 0 2em rgba(74, 144, 226, 0.6));
 }
 
 @keyframes logo-spin {
@@ -36,15 +36,15 @@
 .card-masculine {
   padding: 1.5em;
   border-radius: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(42, 71, 133, 0.15);
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(58, 92, 170, 0.15);
   transition: all 0.3s ease;
 }
 
 .card-masculine:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border-color: rgba(42, 71, 133, 0.25);
+  border-color: rgba(58, 92, 170, 0.25);
 }
 
 .read-the-docs {
