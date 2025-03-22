@@ -64,12 +64,15 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				flirt: {
-					purple: "#9B51E0",
-					lavender: "#a58fd8",
-					pink: "#FF6F91",
-					blue: "#56CCF2",
-					charcoal: "#2D3748",
-					lightGrey: "#F7FAFC"
+					navy: "#1A2C5B",        // Deep navy blue
+					charcoal: "#2D3748",    // Charcoal gray
+					slate: "#403E43",       // Slate gray
+					gold: "#D4AF37",        // Gold accent
+					crimson: "#990000",     // Deep red
+					blue: "#0056B3",        // Strong blue
+					lightBlue: "#56CCF2",   // Light blue accent
+					gray: "#F0F2F5",        // Light gray
+					white: "#FFFFFF"        // White
 				}
 			},
 			borderRadius: {
@@ -78,7 +81,7 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
+				sans: ['Roboto', 'sans-serif'],
 				heading: ['Montserrat', 'sans-serif']
 			},
 			keyframes: {
@@ -147,8 +150,8 @@ export default {
 				'glass': '0 4px 30px rgba(0, 0, 0, 0.1)',
 				'glass-hover': '0 8px 32px rgba(0, 0, 0, 0.15)',
 				'glass-active': '0 4px 16px rgba(0, 0, 0, 0.2)',
-				'neon': '0 0 15px rgba(155, 81, 224, 0.5)',
-				'neon-hover': '0 0 20px rgba(155, 81, 224, 0.7)'
+				'neon': '0 0 15px rgba(26, 44, 91, 0.5)',
+				'neon-hover': '0 0 20px rgba(26, 44, 91, 0.7)'
 			}
 		}
 	},

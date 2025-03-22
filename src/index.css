@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,35 +7,35 @@
 
 @layer base {
   :root {
-    --background: 240 20% 98%;
-    --foreground: 250 10% 15%;
+    --background: 218 30% 98%;
+    --foreground: 220 20% 15%;
 
-    --card: 240 20% 98%;
-    --card-foreground: 250 10% 15%;
+    --card: 218 30% 98%;
+    --card-foreground: 220 20% 15%;
 
-    --popover: 240 20% 98%;
-    --popover-foreground: 250 10% 15%;
+    --popover: 218 30% 98%;
+    --popover-foreground: 220 20% 15%;
 
-    --primary: 265 67% 60%;
+    --primary: 220 60% 23%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 100% 64%;
+    --secondary: 215 80% 35%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 46%;
+    --muted: 220 10% 96%;
+    --muted-foreground: 220 10% 46%;
 
-    --accent: 340 100% 72%;
+    --accent: 45 65% 52%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 70% 30%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 265 67% 60%;
+    --border: 220 16% 90%;
+    --input: 220 16% 90%;
+    --ring: 220 60% 23%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -48,42 +48,42 @@
   }
 
   .dark {
-    --background: 240 10% 10%;
-    --foreground: 240 5% 94%;
+    --background: 220 20% 10%;
+    --foreground: 220 10% 94%;
 
-    --card: 240 10% 12%;
-    --card-foreground: 240 5% 94%;
+    --card: 220 20% 12%;
+    --card-foreground: 220 10% 94%;
 
-    --popover: 240 10% 10%;
-    --popover-foreground: 240 5% 94%;
+    --popover: 220 20% 10%;
+    --popover-foreground: 220 10% 94%;
 
-    --primary: 265 67% 60%;
+    --primary: 220 60% 23%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 100% 64%;
+    --secondary: 215 80% 35%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 4% 16%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 220 10% 16%;
+    --muted-foreground: 220 10% 65%;
 
-    --accent: 340 100% 72%;
+    --accent: 45 65% 52%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 70% 30%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 4% 16%;
-    --input: 240 4% 16%;
-    --ring: 265 67% 60%;
+    --border: 220 10% 16%;
+    --input: 220 10% 16%;
+    --ring: 220 60% 23%;
 
-    --sidebar-background: 240 10% 8%;
-    --sidebar-foreground: 240 5% 84%;
-    --sidebar-primary: 265 67% 60%;
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 220 10% 84%;
+    --sidebar-primary: 220 60% 23%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 4% 16%;
-    --sidebar-accent-foreground: 240 5% 84%;
-    --sidebar-border: 240 4% 16%;
-    --sidebar-ring: 265 67% 60%;
+    --sidebar-accent: 220 10% 16%;
+    --sidebar-accent-foreground: 220 10% 84%;
+    --sidebar-border: 220 10% 16%;
+    --sidebar-ring: 220 60% 23%;
   }
 }
 
@@ -95,8 +95,8 @@
   body {
     @apply bg-background text-foreground font-sans;
     background-image: 
-      radial-gradient(at 90% 10%, hsla(265, 67%, 90%, 0.2) 0px, transparent 50%),
-      radial-gradient(at 10% 90%, hsla(215, 100%, 90%, 0.2) 0px, transparent 50%);
+      radial-gradient(at 90% 10%, hsla(220, 60%, 23%, 0.1) 0px, transparent 50%),
+      radial-gradient(at 10% 90%, hsla(215, 80%, 35%, 0.1) 0px, transparent 50%);
     background-attachment: fixed;
   }
 
@@ -121,7 +121,7 @@
   }
 
   .glass {
-    @apply bg-white/30 dark:bg-white/10 backdrop-blur-md border border-white/30 dark:border-white/10 rounded-xl shadow-glass transition-all duration-300;
+    @apply bg-white/30 dark:bg-white/10 backdrop-blur-md border border-white/30 dark:border-white/10 rounded-lg shadow-glass transition-all duration-300;
   }
 
   .glass:hover {
@@ -137,7 +137,7 @@
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-flirt-purple to-flirt-blue;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-flirt-navy to-flirt-blue;
   }
 }
 
@@ -159,8 +159,8 @@
       115deg,
       transparent, 
       transparent, 
-      rgba(155, 81, 224, 0.4), 
-      rgba(155, 81, 224, 0.1),
+      rgba(26, 44, 91, 0.4), 
+      rgba(26, 44, 91, 0.1),
       transparent
     );
     transform: rotate(45deg);
@@ -176,24 +176,33 @@
       transform: translateX(50%) translateY(50%) rotate(360deg);
     }
   }
+
+  /* Masculine-styled cards */
+  .card-masculine {
+    @apply rounded-md border border-flirt-navy/20 bg-white/70 shadow-sm transition-all duration-300;
+  }
+
+  .card-masculine:hover {
+    @apply shadow-md border-flirt-navy/30;
+  }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(240, 240, 250, 0.5);
+  background: rgba(240, 242, 245, 0.8);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(155, 81, 224, 0.5);
-  border-radius: 5px;
+  background: rgba(26, 44, 91, 0.5);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(155, 81, 224, 0.7);
+  background: rgba(26, 44, 91, 0.7);
 }
 
 /* Smooth transitions */
