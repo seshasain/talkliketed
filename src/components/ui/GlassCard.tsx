@@ -23,9 +23,9 @@ const GlassCard = ({
   const getCardClass = () => {
     switch (variant) {
       case 'masculine':
-        return 'bg-white/80 dark:bg-flirt-slate/80 backdrop-blur-sm border border-flirt-navy/10 dark:border-white/5 rounded-md shadow-sm';
+        return 'bg-white/90 dark:bg-flirt-slate/90 backdrop-blur-sm border border-flirt-navy/15 dark:border-white/10 rounded-md shadow-sm';
       case 'minimal':
-        return 'bg-white/50 dark:bg-flirt-charcoal/50 backdrop-blur-sm border-0 rounded-md';
+        return 'bg-white/70 dark:bg-flirt-charcoal/70 backdrop-blur-sm border-0 rounded-md';
       case 'glass':
       default:
         return 'glass';
