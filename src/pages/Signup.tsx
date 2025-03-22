@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Eye, EyeOff, ArrowRight } from 'lucide-react';
+import { Eye, EyeOff, ArrowRight, User } from 'lucide-react';
 
 import { Button } from "@/components/ui/button";
 import {
@@ -16,29 +16,36 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import GlassCard from "@/components/ui/GlassCard";
 import AnimatedButton from "@/components/ui/AnimatedButton";
 import { useAuth } from '@/context/AuthContext';
 
 const formSchema = z.object({
+  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
   email: z.string().email({ message: "Please enter a valid email address" }),
   password: z.string().min(6, { message: "Password must be at least 6 characters" }),
+  confirmPassword: z.string().min(6, { message: "Password must be at least 6 characters" }),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Passwords don't match",
+  path: ["confirmPassword"],
 });
 
-const Login = () => {
+const Signup = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
-  const { signIn } = useAuth();
+  const { signUp } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      name: "",
       email: "",
       password: "",
+      confirmPassword: "",
     },
   });
 
@@ -46,19 +53,19 @@ const Login = () => {
     try {
       setIsSubmitting(true);
       // Will be replaced with Supabase auth
-      await signIn(values.email, values.password);
+      await signUp(values.email, values.password, values.name);
       
       toast({
-        title: "Login successful!",
-        description: "Welcome back to FlirtSync",
+        title: "Account created!",
+        description: "Welcome to FlirtSync",
       });
       
-      // Navigate to dashboard after successful login
+      // Redirect to dashboard after signup
       navigate('/dashboard');
     } catch (error) {
       toast({
-        title: "Login failed",
-        description: "Invalid email or password. Please try again.",
+        title: "Signup failed",
+        description: "There was an error creating your account. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -83,12 +90,31 @@ const Login = () => {
         <GlassCard variant="masculine" className="w-full">
           <div className="p-6">
             <div className="text-center mb-6">
-              <h1 className="text-2xl font-bold">Welcome Back</h1>
-              <p className="text-muted-foreground text-sm">Log in to access your conversations</p>
+              <h1 className="text-2xl font-bold">Create Your Account</h1>
+              <p className="text-muted-foreground text-sm">Sign up to start improving your conversations</p>
             </div>
             
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Full Name</FormLabel>
+                      <FormControl>
+                        <div className="relative">
+                          <Input placeholder="John Doe" {...field} />
+                          <div className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                            <User size={16} />
+                          </div>
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
                 <FormField
                   control={form.control}
                   name="email"
@@ -102,6 +128,7 @@ const Login = () => {
                     </FormItem>
                   )}
                 />
+                
                 <FormField
                   control={form.control}
                   name="password"
@@ -129,11 +156,32 @@ const Login = () => {
                   )}
                 />
                 
-                <div className="flex justify-end">
-                  <Link to="/forgot-password" className="text-sm text-flirt-blue hover:underline">
-                    Forgot password?
-                  </Link>
-                </div>
+                <FormField
+                  control={form.control}
+                  name="confirmPassword"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Confirm Password</FormLabel>
+                      <FormControl>
+                        <div className="relative">
+                          <Input 
+                            type={showConfirmPassword ? "text" : "password"} 
+                            placeholder="••••••••" 
+                            {...field} 
+                          />
+                          <button 
+                            type="button"
+                            className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                          >
+                            {showConfirmPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                          </button>
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
                 
                 <AnimatedButton 
                   type="submit" 
@@ -144,16 +192,16 @@ const Login = () => {
                   iconPosition="right"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Logging in..." : "Log In"}
+                  {isSubmitting ? "Creating Account..." : "Create Account"}
                 </AnimatedButton>
               </form>
             </Form>
             
             <div className="mt-6 text-center">
               <p className="text-sm text-muted-foreground">
-                Don't have an account?{" "}
-                <Link to="/signup" className="text-flirt-blue hover:underline">
-                  Sign up
+                Already have an account?{" "}
+                <Link to="/login" className="text-flirt-blue hover:underline">
+                  Log in
                 </Link>
               </p>
             </div>
@@ -162,7 +210,7 @@ const Login = () => {
         
         <div className="mt-8 text-center">
           <p className="text-xs text-muted-foreground">
-            By logging in, you agree to our{" "}
+            By signing up, you agree to our{" "}
             <Link to="/terms" className="hover:underline">Terms of Service</Link>
             {" "}and{" "}
             <Link to="/privacy" className="hover:underline">Privacy Policy</Link>
@@ -173,4 +221,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
