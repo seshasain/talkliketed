@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -64,15 +63,21 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				flirt: {
-					navy: "#3A5CAA",      // Brightened navy blue
-					charcoal: "#4D5A6C",  // Lightened charcoal
-					slate: "#606A7A",     // Lightened slate
-					gold: "#F8D064",      // Brightened gold
-					crimson: "#D83838",   // Brightened crimson
-					blue: "#4A90E2",      // Brightened blue
-					lightBlue: "#8EEBFF", // Brightened light blue
-					gray: "#F5F7FA",      // Lighter gray
-					white: "#FFFFFF"      // Kept white
+					/* Instagram-inspired vibrant color palette */
+					purple: "#833AB4",     // Instagram purple
+					pink: "#C6278E",       // Instagram pink/magenta
+					red: "#FD1D1D",        // Instagram red/coral
+					orange: "#FCAF45",     // Instagram orange/yellow
+					blue: "#5851DB",       // Instagram blue
+					lightBlue: "#405DE6",   // Instagram light blue
+					gray: "#F5F7FA",       // Light gray
+					darkGray: "#262626",   // Instagram UI dark gray
+					white: "#FFFFFF",      // White
+					black: "#000000",      // Black
+					/* Gradient colors for text and buttons */
+					gradientStart: "#833AB4",  // Purple start for gradients
+					gradientMiddle: "#FD1D1D", // Red/pink middle for gradients
+					gradientEnd: "#FCAF45"     // Orange/yellow end for gradients
 				}
 			},
 			borderRadius: {
@@ -123,7 +128,7 @@ export default {
 				},
 				'bounce-subtle': {
 					'0%, 100%': { transform: 'translateY(0)' },
-					'50%': { transform: 'translateY(-4px)' }
+					'50%': { transform: 'translateY(-5px)' }
 				},
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
@@ -150,10 +155,12 @@ export default {
 				'glass': '0 4px 30px rgba(0, 0, 0, 0.1)',
 				'glass-hover': '0 8px 32px rgba(0, 0, 0, 0.15)',
 				'glass-active': '0 4px 16px rgba(0, 0, 0, 0.2)',
-				'neon': '0 0 15px rgba(26, 44, 91, 0.5)',
-				'neon-hover': '0 0 20px rgba(26, 44, 91, 0.7)'
+				'neon': '0 0 15px rgba(131, 58, 180, 0.5)',
+				'neon-hover': '0 0 20px rgba(131, 58, 180, 0.7)',
+				'insta': '0 4px 20px rgba(198, 39, 142, 0.25)',
+				'insta-hover': '0 8px 30px rgba(198, 39, 142, 0.35)'
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography')],
 } satisfies Config;

@@ -1,8 +1,24 @@
-
 #root {
   width: 100%;
   min-height: 100vh;
   margin: 0 auto;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Global fixed for html/body to prevent double scrollbars */
+html, body {
+  overflow-x: hidden; /* Ensure both html and body don't scroll horizontally */
+  max-width: 100%;
+  position: relative;
+  /* Remove default margin and padding */
+  margin: 0;
+  padding: 0;
+}
+
+/* Important class to prevent any horizontal scrolling in sections */
+.prevent-horizontal-scroll {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .logo {
@@ -12,10 +28,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em rgba(58, 92, 170, 0.6));
+  filter: drop-shadow(0 0 2em rgba(131, 58, 180, 0.6));
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em rgba(74, 144, 226, 0.6));
+  filter: drop-shadow(0 0 2em rgba(198, 39, 142, 0.6));
 }
 
 @keyframes logo-spin {
@@ -37,16 +53,180 @@
   padding: 1.5em;
   border-radius: 0.5rem;
   background-color: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(58, 92, 170, 0.15);
+  border: 1px solid rgba(131, 58, 180, 0.15);
   transition: all 0.3s ease;
 }
 
 .card-masculine:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border-color: rgba(58, 92, 170, 0.25);
+  box-shadow: 0 10px 25px rgba(198, 39, 142, 0.15);
+  border-color: rgba(131, 58, 180, 0.25);
 }
 
 .read-the-docs {
   color: #555;
+}
+
+/* Instagram-inspired buttons */
+.button-instagram {
+  background: linear-gradient(45deg, #833AB4, #C6278E, #FD1D1D, #FCAF45);
+  background-size: 300% 300%;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: gradient-shift 5s ease infinite;
+}
+
+.button-instagram:hover {
+  background-size: 400% 400%;
+  box-shadow: 0 8px 20px rgba(198, 39, 142, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Ensure proper contrast for button text */
+button.bg-primary, 
+button.bg-flirt-purple, 
+button.bg-flirt-pink {
+  color: white !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+button.bg-flirt-orange, 
+button.bg-accent {
+  color: black !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Instagram-inspired card */
+.card-instagram {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.card-instagram:hover {
+  box-shadow: 0 8px 30px rgba(198, 39, 142, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Instagram-inspired avatar */
+.avatar-instagram {
+  border: 3px solid transparent;
+  background: linear-gradient(45deg, #833AB4, #C6278E, #FD1D1D, #FCAF45) border-box;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+/* Instagram-inspired gradient border */
+.gradient-border {
+  position: relative;
+  padding: 5px;
+  background: linear-gradient(45deg, #833AB4, #C6278E, #FD1D1D, #FCAF45);
+  background-size: 300% 300%;
+  animation: gradient-shift 5s ease infinite;
+  border-radius: 10px;
+}
+
+.gradient-border::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: white;
+  border-radius: 8px;
+  z-index: 0;
+}
+
+.gradient-border > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fix for container overflows */
+.container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip; /* Use clip instead of hidden for better behavior */
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Shadow for Instagram-like cards */
+.shadow-insta {
+  box-shadow: 0 8px 30px rgba(131, 58, 180, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .grid {
+    width: 100%;
+    padding: 0;
+  }
+  
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 100%;
+  }
+  
+  /* Improve mobile scrolling */
+  .scroll-smooth {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+}
+
+/* Modern scrollbar styling - only apply to specific elements with scroll-smooth class */
+.scroll-smooth::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.scroll-smooth::-webkit-scrollbar-track {
+  background: rgba(245, 245, 247, 0.5);
+  border-radius: 10px;
+}
+
+.scroll-smooth::-webkit-scrollbar-thumb {
+  background: rgba(198, 39, 142, 0.4);
+  border-radius: 10px;
+}
+
+.scroll-smooth::-webkit-scrollbar-thumb:hover {
+  background: rgba(198, 39, 142, 0.6);
+}
+
+/* Only apply these styles to the main body scrollbar, not to elements with scroll-smooth */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(245, 245, 247, 0.8);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(198, 39, 142, 0.6);
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: rgba(198, 39, 142, 0.8);
 }

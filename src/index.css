@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -7,83 +6,93 @@
 
 @layer base {
   :root {
-    --background: 210 30% 96%;
-    --foreground: 220 20% 15%;
+    /* Instagram-inspired vibrant color palette for light mode */
+    --background: 210 30% 98%;
+    --foreground: 220 25% 15%;
 
-    --card: 210 30% 96%;
-    --card-foreground: 220 20% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 15%;
 
-    --popover: 210 30% 96%;
-    --popover-foreground: 220 20% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 15%;
 
-    --primary: 220 60% 45%;
+    /* Instagram-like purple/blue gradient primary */
+    --primary: 264 70% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 70% 55%;
+    /* Instagram-like pink */
+    --secondary: 335 80% 60%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 220 15% 92%;
     --muted-foreground: 220 10% 46%;
 
-    --accent: 45 70% 60%;
-    --accent-foreground: 220 20% 15%;
+    /* Instagram-like orange/pink gradient */
+    --accent: 32 100% 55%;
+    --accent-foreground: 220 25% 15%;
 
-    --destructive: 0 70% 45%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 16% 85%;
-    --input: 220 16% 85%;
-    --ring: 220 60% 45%;
+    --border: 220 16% 90%;
+    --input: 220 16% 90%;
+    --ring: 264 70% 50%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar is now more vibrant, Instagram-like */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 264 60% 40%;
+    --sidebar-primary: 264 70% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 335 80% 96%;
+    --sidebar-accent-foreground: 335 80% 45%;
+    --sidebar-border: 264 50% 95%;
+    --sidebar-ring: 335 80% 60%;
   }
 
   .dark {
-    --background: 220 20% 15%;
-    --foreground: 220 10% 94%;
+    /* Instagram-inspired vibrant color palette for dark mode */
+    --background: 222 25% 10%;
+    --foreground: 210 30% 98%;
 
-    --card: 220 20% 17%;
-    --card-foreground: 220 10% 94%;
+    --card: 222 25% 12%;
+    --card-foreground: 210 30% 98%;
 
-    --popover: 220 20% 15%;
-    --popover-foreground: 220 10% 94%;
+    --popover: 222 25% 12%;
+    --popover-foreground: 210 30% 98%;
 
-    --primary: 220 60% 50%;
+    /* Instagram-like purple/blue gradient primary in dark */
+    --primary: 264 70% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 70% 60%;
+    /* Instagram-like pink in dark */
+    --secondary: 335 80% 60%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 10% 25%;
+    --muted: 220 10% 20%;
     --muted-foreground: 220 10% 75%;
 
-    --accent: 45 70% 65%;
-    --accent-foreground: 220 20% 15%;
+    /* Instagram-like orange/pink gradient */
+    --accent: 32 100% 55%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 70% 50%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 10% 25%;
-    --input: 220 10% 25%;
-    --ring: 220 60% 50%;
+    --border: 220 10% 20%;
+    --input: 220 10% 20%;
+    --ring: 264 70% 55%;
 
-    --sidebar-background: 220 20% 12%;
-    --sidebar-foreground: 220 10% 84%;
-    --sidebar-primary: 220 60% 50%;
+    /* Dark sidebar with Instagram vibes */
+    --sidebar-background: 222 30% 8%;
+    --sidebar-foreground: 264 60% 80%;
+    --sidebar-primary: 264 70% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 10% 25%;
-    --sidebar-accent-foreground: 220 10% 84%;
-    --sidebar-border: 220 10% 25%;
-    --sidebar-ring: 220 60% 50%;
+    --sidebar-accent: 335 80% 35%;
+    --sidebar-accent-foreground: 335 80% 95%;
+    --sidebar-border: 222 25% 16%;
+    --sidebar-ring: 335 80% 60%;
   }
 }
 
@@ -95,8 +104,8 @@
   body {
     @apply bg-background text-foreground font-sans;
     background-image: 
-      radial-gradient(at 90% 10%, hsla(220, 70%, 30%, 0.15) 0px, transparent 50%),
-      radial-gradient(at 10% 90%, hsla(215, 80%, 45%, 0.15) 0px, transparent 50%);
+      radial-gradient(at 90% 10%, hsla(264, 70%, 50%, 0.15) 0px, transparent 50%),
+      radial-gradient(at 10% 90%, hsla(335, 80%, 60%, 0.15) 0px, transparent 50%);
     background-attachment: fixed;
   }
 
@@ -137,7 +146,7 @@
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-flirt-navy via-flirt-blue to-flirt-lightBlue;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45];
   }
 }
 
@@ -159,8 +168,8 @@
       115deg,
       transparent, 
       transparent, 
-      rgba(74, 144, 226, 0.5), 
-      rgba(74, 144, 226, 0.2),
+      rgba(198, 39, 142, 0.5), 
+      rgba(252, 175, 69, 0.2),
       transparent
     );
     transform: rotate(45deg);
@@ -177,32 +186,32 @@
     }
   }
 
-  /* Masculine-styled cards */
+  /* Vibrant Instagram-inspired cards */
   .card-masculine {
-    @apply rounded-md border border-flirt-navy/20 bg-white/80 shadow-sm transition-all duration-300;
+    @apply rounded-md border border-purple-500/20 bg-white/80 shadow-sm transition-all duration-300;
   }
 
   .card-masculine:hover {
-    @apply shadow-md border-flirt-navy/30;
+    @apply shadow-md border-purple-500/30;
   }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar with Instagram-inspired colors */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(240, 242, 245, 0.8);
+  background: rgba(245, 245, 247, 0.8);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(58, 92, 170, 0.6);
+  background: rgba(198, 39, 142, 0.6);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(58, 92, 170, 0.8);
+  background: rgba(198, 39, 142, 0.8);
 }
 
 /* Smooth transitions */

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MessageSquare, Zap, Shield, Target, Award, LineChart, Brain, Anchor } from 'lucide-react';
 import GlassCard from '../ui/GlassCard';
@@ -6,7 +5,7 @@ import GlassCard from '../ui/GlassCard';
 const Features = () => {
   const features = [
     {
-      icon: <Target className="text-flirt-navy" size={26} />,
+      icon: <Target className="text-flirt-purple" size={26} />,
       title: "Strategic Approach",
       description: "Get tailored conversation strategies based on your personality and goals."
     },
@@ -16,12 +15,12 @@ const Features = () => {
       description: "Never be stuck for words with our arsenal of effective opening lines and witty comebacks."
     },
     {
-      icon: <Zap className="text-flirt-gold" size={26} />,
+      icon: <Zap className="text-flirt-pink" size={26} />,
       title: "Real-Time Coaching",
       description: "Receive instant feedback on your messages to improve your communication approach."
     },
     {
-      icon: <MessageSquare className="text-flirt-navy" size={26} />,
+      icon: <MessageSquare className="text-flirt-purple" size={26} />,
       title: "Conversation Dashboard",
       description: "Track your conversations and identify successful patterns to replicate."
     },
@@ -31,12 +30,12 @@ const Features = () => {
       description: "Gain insights into what works best for you with detailed communication metrics."
     },
     {
-      icon: <Shield className="text-flirt-navy" size={26} />,
+      icon: <Shield className="text-flirt-purple" size={26} />,
       title: "Privacy Guaranteed",
       description: "Military-grade encryption and strict privacy controls keep your conversations completely confidential."
     },
     {
-      icon: <Award className="text-flirt-gold" size={26} />,
+      icon: <Award className="text-flirt-orange" size={26} />,
       title: "Skills Development",
       description: "Build lasting confidence with personalized communication development plans."
     },
@@ -48,11 +47,11 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-20 relative">
-      <div className="absolute top-1/4 right-0 w-64 h-64 bg-flirt-blue/10 rounded-full blur-3xl opacity-40"></div>
-      <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-flirt-navy/10 rounded-full blur-3xl opacity-40"></div>
+    <section id="features" className="py-20 relative prevent-horizontal-scroll">
+      <div className="absolute top-1/4 right-0 w-64 h-64 bg-flirt-purple/10 rounded-full blur-3xl opacity-40"></div>
+      <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-flirt-pink/10 rounded-full blur-3xl opacity-40"></div>
       
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
+      <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="gradient-text inline-block mb-4">Powerful Features</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -60,11 +59,11 @@ const Features = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1440px] mx-auto">
           {features.map((feature, i) => (
             <GlassCard 
               key={i} 
-              className="h-full"
+              className="h-full shadow-insta"
               hoverEffect={true}
               glowEffect={i % 4 === 0}
               variant="masculine"

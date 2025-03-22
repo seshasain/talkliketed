@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
 
@@ -26,15 +25,15 @@ const AnimatedButton = ({
   const getVariantClass = () => {
     switch (variant) {
       case 'primary':
-        return 'bg-flirt-navy hover:bg-flirt-navy/90 text-white';
+        return 'bg-flirt-purple hover:bg-flirt-purple/90 text-white';
       case 'secondary':
-        return 'bg-flirt-blue hover:bg-flirt-blue/90 text-white';
+        return 'bg-flirt-pink hover:bg-flirt-pink/90 text-white';
       case 'accent':
-        return 'bg-flirt-gold hover:bg-flirt-gold/90 text-flirt-charcoal';
+        return 'bg-flirt-orange hover:bg-flirt-orange/90 text-black';
       case 'outline':
-        return 'bg-transparent border border-flirt-navy text-flirt-navy hover:bg-flirt-navy/10';
+        return 'bg-transparent border border-flirt-purple text-flirt-purple hover:bg-flirt-purple/10';
       case 'ghost':
-        return 'bg-transparent hover:bg-flirt-navy/10 text-flirt-navy';
+        return 'bg-transparent hover:bg-flirt-purple/10 text-flirt-purple';
       default:
         return 'bg-primary hover:bg-primary/90 text-primary-foreground';
     }

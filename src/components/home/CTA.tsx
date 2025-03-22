@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Target, Shield, Zap } from 'lucide-react';
 import AnimatedButton from '../ui/AnimatedButton';
@@ -7,9 +6,13 @@ import GlassCard from '../ui/GlassCard';
 
 const CTA = () => {
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+    <section className="py-20 prevent-horizontal-scroll relative">
+      {/* Background decorations */}
+      <div className="absolute -top-32 -right-32 w-96 h-96 bg-flirt-pink/15 rounded-full blur-3xl opacity-50 animate-pulse-subtle"></div>
+      <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-flirt-purple/15 rounded-full blur-3xl opacity-50 animate-pulse-subtle"></div>
+      
+      <div className="container mx-auto relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-12 max-w-[1440px] mx-auto">
           <div className="lg:w-1/2">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
               Ready to Elevate Your <span className="gradient-text">Conversation Game</span>?
@@ -20,8 +23,8 @@ const CTA = () => {
             
             <div className="space-y-4 mb-8">
               <div className="flex items-start">
-                <div className="mt-1 mr-4 h-6 w-6 rounded-md bg-flirt-navy/20 flex items-center justify-center">
-                  <Target size={14} className="text-flirt-navy" />
+                <div className="mt-1 mr-4 h-6 w-6 rounded-md bg-flirt-purple/20 flex items-center justify-center">
+                  <Target size={14} className="text-flirt-purple" />
                 </div>
                 <div>
                   <h3 className="font-medium mb-1">Strategic Approach</h3>
@@ -30,8 +33,8 @@ const CTA = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="mt-1 mr-4 h-6 w-6 rounded-md bg-flirt-blue/20 flex items-center justify-center">
-                  <Zap size={14} className="text-flirt-blue" />
+                <div className="mt-1 mr-4 h-6 w-6 rounded-md bg-flirt-pink/20 flex items-center justify-center">
+                  <Zap size={14} className="text-flirt-pink" />
                 </div>
                 <div>
                   <h3 className="font-medium mb-1">Confidence Builder</h3>
@@ -40,8 +43,8 @@ const CTA = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="mt-1 mr-4 h-6 w-6 rounded-md bg-flirt-gold/20 flex items-center justify-center">
-                  <Shield size={14} className="text-flirt-navy" />
+                <div className="mt-1 mr-4 h-6 w-6 rounded-md bg-flirt-orange/20 flex items-center justify-center">
+                  <Shield size={14} className="text-flirt-orange" />
                 </div>
                 <div>
                   <h3 className="font-medium mb-1">100% Private</h3>
@@ -55,6 +58,7 @@ const CTA = () => {
                 variant="primary" 
                 size="lg" 
                 glowEffect
+                className="button-instagram"
                 icon={<ArrowRight size={18} />}
                 iconPosition="right"
               >
@@ -64,7 +68,7 @@ const CTA = () => {
           </div>
           
           <div className="lg:w-1/2">
-            <GlassCard className="p-8 md:p-10" glowEffect variant="masculine">
+            <GlassCard className="p-8 md:p-10 shadow-insta" glowEffect variant="masculine">
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -72,7 +76,7 @@ const CTA = () => {
                     <p className="text-muted-foreground text-sm">7 days of premium features</p>
                   </div>
                   <div className="font-heading">
-                    <span className="text-2xl font-bold">$0</span>
+                    <span className="text-2xl font-bold gradient-text">$0</span>
                   </div>
                 </div>
                 
@@ -84,9 +88,9 @@ const CTA = () => {
                     "24/7 support",
                   ].map((feature, i) => (
                     <li key={i} className="flex items-center">
-                      <div className="h-5 w-5 rounded-md bg-flirt-navy/20 flex items-center justify-center mr-3 flex-shrink-0">
+                      <div className="h-5 w-5 rounded-md bg-flirt-purple/20 flex items-center justify-center mr-3 flex-shrink-0">
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M10 3L4.5 8.5L2 6" stroke="#1A2C5B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M10 3L4.5 8.5L2 6" stroke="#833AB4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       </div>
                       <span className="text-sm">{feature}</span>
@@ -101,7 +105,7 @@ const CTA = () => {
                       <p className="text-muted-foreground text-sm">Full access to all features</p>
                     </div>
                     <div className="font-heading">
-                      <span className="text-2xl font-bold">$9.99</span>
+                      <span className="text-2xl font-bold gradient-text">$9.99</span>
                       <span className="text-muted-foreground text-sm">/month</span>
                     </div>
                   </div>
@@ -115,9 +119,9 @@ const CTA = () => {
                       "Confidence building tools",
                     ].map((feature, i) => (
                       <li key={i} className="flex items-center">
-                        <div className="h-5 w-5 rounded-md bg-flirt-navy/20 flex items-center justify-center mr-3 flex-shrink-0">
+                        <div className="h-5 w-5 rounded-md bg-flirt-pink/20 flex items-center justify-center mr-3 flex-shrink-0">
                           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10 3L4.5 8.5L2 6" stroke="#1A2C5B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            <path d="M10 3L4.5 8.5L2 6" stroke="#C6278E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                           </svg>
                         </div>
                         <span className="text-sm">{feature}</span>

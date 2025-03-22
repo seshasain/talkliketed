@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -9,9 +8,9 @@ import CTA from '@/components/home/CTA';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col prevent-horizontal-scroll">
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow prevent-horizontal-scroll">
         <Hero />
         <Features />
         <ChatDemo />
