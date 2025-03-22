@@ -1,13 +1,14 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, MessageSquare, Heart, Sparkles } from 'lucide-react';
+import { Menu, X, MessageSquare, Heart, Sparkles, LayoutDashboard, MessageCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import AnimatedButton from '../ui/AnimatedButton';
+import { useAuth } from '@/context/AuthContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { user } = useAuth();
 
   // Handle scroll effect
   useEffect(() => {
@@ -27,11 +28,19 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const navLinks = [
+  const publicNavLinks = [
     { name: 'Features', path: '#features', icon: <Sparkles size={18} /> },
     { name: 'How It Works', path: '#how-it-works', icon: <MessageSquare size={18} /> },
     { name: 'Testimonials', path: '#testimonials', icon: <Heart size={18} /> },
   ];
+
+  const authenticatedNavLinks = [
+    { name: 'Dashboard', path: '/dashboard', icon: <LayoutDashboard size={18} /> },
+    { name: 'Chat', path: '/chat', icon: <MessageCircle size={18} /> },
+  ];
+
+  // Choose the appropriate navigation links based on authentication status
+  const navLinks = user ? authenticatedNavLinks : publicNavLinks;
 
   return (
     <nav
@@ -55,29 +64,39 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.path}
+                to={link.path}
                 className="flex items-center text-foreground/80 hover:text-flirt-purple transition-colors duration-300 font-medium"
               >
                 <span className="mr-1.5">{link.icon}</span>
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link to="/login">
-              <AnimatedButton variant="ghost" size="default">
-                Log In
-              </AnimatedButton>
-            </Link>
-            <Link to="/signup">
-              <AnimatedButton variant="primary" size="default" glowEffect>
-                Get Started
-              </AnimatedButton>
-            </Link>
+            {user ? (
+              <Link to="/profile">
+                <AnimatedButton variant="outline" size="default">
+                  My Profile
+                </AnimatedButton>
+              </Link>
+            ) : (
+              <>
+                <Link to="/login">
+                  <AnimatedButton variant="ghost" size="default">
+                    Log In
+                  </AnimatedButton>
+                </Link>
+                <Link to="/signup">
+                  <AnimatedButton variant="primary" size="default" glowEffect>
+                    Get Started
+                  </AnimatedButton>
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -95,27 +114,37 @@ const Navbar = () => {
           <div className="md:hidden animate-fade-in">
             <div className="flex flex-col space-y-4 mt-6 p-4 glass rounded-lg">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.path}
+                  to={link.path}
                   className="flex items-center text-foreground/80 hover:text-flirt-purple transition-colors duration-300 font-medium py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <span className="mr-2">{link.icon}</span>
                   {link.name}
-                </a>
+                </Link>
               ))}
               <div className="pt-4 flex flex-col space-y-3 border-t border-border">
-                <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
-                  <AnimatedButton variant="ghost" size="default" className="w-full justify-center">
-                    Log In
-                  </AnimatedButton>
-                </Link>
-                <Link to="/signup" onClick={() => setIsMobileMenuOpen(false)}>
-                  <AnimatedButton variant="primary" size="default" className="w-full justify-center" glowEffect>
-                    Get Started
-                  </AnimatedButton>
-                </Link>
+                {user ? (
+                  <Link to="/profile" onClick={() => setIsMobileMenuOpen(false)}>
+                    <AnimatedButton variant="outline" size="default" className="w-full justify-center">
+                      My Profile
+                    </AnimatedButton>
+                  </Link>
+                ) : (
+                  <>
+                    <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
+                      <AnimatedButton variant="ghost" size="default" className="w-full justify-center">
+                        Log In
+                      </AnimatedButton>
+                    </Link>
+                    <Link to="/signup" onClick={() => setIsMobileMenuOpen(false)}>
+                      <AnimatedButton variant="primary" size="default" className="w-full justify-center" glowEffect>
+                        Get Started
+                      </AnimatedButton>
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </div>
